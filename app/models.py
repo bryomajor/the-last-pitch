@@ -23,3 +23,20 @@ class User(db.Model):
 
     def __repr__(self):
         return f'{self.username}'
+
+
+class Pitch(db.Model):
+
+    __tablename__ = 'pitches'
+    id = db.Column(db.Integer, primary_key = True)
+    description = db.Column(db.String(), index = True)
+    title = db.Column(db.String())
+    category = db.Column(db.String(255), nullable=False)
+
+    @classmethod
+    def get_pitches(cls, id):
+        pitches = Pitch.query.order_by(pitch_id=id).desc().all()
+        return pitches
+
+    def __repr__(self):
+        return f'Pitch {self.description}'
