@@ -33,7 +33,7 @@ def new_pitch():
         owner_id = current_user
         category = form.category.data
         print(current_user.get_current_object().id)
-        new_pitch = Pitch(owner_id=current_user.get_current_object().id, title=title, descrihttp://127.0.0.1:5000/ption=description, category
+        new_pitch = Pitch(owner_id=current_user.get_current_object().id, title=title, description=description, category
         =category)
         db.session.add(new_pitch)
         db.session.commit()
