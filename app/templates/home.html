@@ -5,28 +5,29 @@
 {% endblock %}
 
 <!-- Styles block -->
-{% block styles%}
+<!-- {% block styles%}
 {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
 <div class="container">
-    <h3>Pitch Categories</h3>
+    <h1 class="text-center">Last Pitch</h1>
+    <p class="width text-center lead">{{ intro }}</p>
     <div class="tabbable-panel">
         <div class="tabbable-line">
             <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li class="active">
-                    <a href="#product" class="nav-link" data-toggle="tab">Product</a>
+                    <a href="#product" class="nav-link" data-toggle="tab">Product Pitches</a>
                 </li>
                 <li>
-                    <a href="#interview" class="nav-link" data-toggle="tab">Interview</a>
+                    <a href="#interview" class="nav-link" data-toggle="tab">Interview Pitches</a>
                 </li>
                 <li>
-                    <a href="#pickupline" class="nav-link" data-toggle="tab">Pickupline</a>
+                    <a href="#pickupline" class="nav-link" data-toggle="tab">Pick-Up Lines</a>
                 </li>
                 <li>
-                    <a href="#promotion" class="nav-link" data-toggle="tab">Promotion</a>
+                    <a href="#promotion" class="nav-link" data-toggle="tab">Promotional Pitches</a>
                 </li>
             </ul>
         </div>
@@ -37,7 +38,7 @@
             {{ macro.display(productpitch) }}
         </div>
         <div id="interview" class="tab-pane">
-            {{ macro.display(interviewpitch) }}
+            <span>{{ macro.display(interviewpitch) }}</span>
         </div>
         <div id="pickupline" class="tab-pane">
             {{ macro.display(pickuplines) }}
