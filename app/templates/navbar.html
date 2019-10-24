@@ -16,7 +16,6 @@
                 <li><a href="/" class="navbar-brand">Home</a></li>
                 {% if current_user.is_authenticated %}
                 <li>{{current_user.username}}</li>
-                <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
                 <li><a href="{{url_for('main.profile', uname=current_user.username)}}">Profile</a></li>
                 <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
                 {% else %}
