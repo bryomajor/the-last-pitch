@@ -12,6 +12,7 @@ def index():
     View root page function that returns the index page and it's data
     '''
     title = 'Home'
+    descr = 'The Last Pitch application allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback. The pitches are organized by category.'
     pitch = Pitch.query.filter_by().first()
     pickuplines = Pitch.query.filter_by(category='pickuplines')
     interviewpitch = Pitch.query.filter_by(category='interviewpitch')
@@ -20,7 +21,7 @@ def index():
 
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
 
-    return render_template('home.html', title = title, pitch = pitch, pickuplines = pickuplines, interviewpitch = interviewpitch, promotionpitch = promotionpitch, productpitch = productpitch, upvotes = upvotes)
+    return render_template('home.html', title = title, intro = descr, pitch = pitch, pickuplines = pickuplines, interviewpitch = interviewpitch, promotionpitch = promotionpitch, productpitch = productpitch, upvotes = upvotes)
 
 @main.route('/pitches/new/', methods = ['GET', 'POST'])
 @login_required
@@ -32,8 +33,8 @@ def new_pitch():
         title = form.title.data
         owner_id = current_user
         category = form.category.data
-        print(current_user.get_current_object().id)
-        new_pitch = Pitch(owner_id=current_user.get_current_object().id, title=title, description=description, category
+        # print(current_user._get_current_object().id, title = title,description=description,category=category)
+        new_pitch = Pitch(owner_id=current_user._get_current_object().id, title=title, description=description, category
         =category)
         db.session.add(new_pitch)
         db.session.commit()
@@ -82,7 +83,7 @@ def downvote(pitch_id):
     user = current_user
     pitch_downvotes = Downvote.query.filter_by(pitch_id=pitch_id)
 
-    if Downvote.query.filter(Downvote.user_id==user_id, Downvote.pitch_id==pitch_id).first():
+    if Downvote.query.filter(Downvote.user_id==user.id, Downvote.pitch_id==pitch_id).first():
         return redirect(url_for('main.index'))
 
     new_downvote = Downvote(pitch_id=pitch_id, user = current_user)
