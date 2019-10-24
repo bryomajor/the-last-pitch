@@ -4,36 +4,45 @@
 {% include 'navbar.html' %}
 {% endblock %}
 
+<!-- Styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <h3>Pitch Categories</h3>
-    <br>
-    <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
-        <li class="nav-item">
-            <a href="#product" class="nav-link active" data-toggle="tab">Product</a>
-        </li>
-        <li class="nav-item">
-            <a href="#interview" class="nav-link" data-toggle="tab">Interview</a>
-        </li>
-        <li class="nav-item">
-            <a href="#pickupline" class="nav-link" data-toggle="tab">Pickupline</a>
-        </li>
-        <li class="nav-item">
-            <a href="#promotion" class="nav-link" data-toggle="tab">Promotion</a>
-        </li>
-    </ul>
+    <div class="tabbable-panel">
+        <div class="tabbable-line">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="active">
+                    <a href="#product" class="nav-link" data-toggle="tab">Product</a>
+                </li>
+                <li>
+                    <a href="#interview" class="nav-link" data-toggle="tab">Interview</a>
+                </li>
+                <li>
+                    <a href="#pickupline" class="nav-link" data-toggle="tab">Pickupline</a>
+                </li>
+                <li>
+                    <a href="#promotion" class="nav-link" data-toggle="tab">Promotion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div class="tab-content">
-        <div id="product" class="container tab-pane active">
+        <div id="product" class="tab-pane active">
             {{ macro.display(productpitch) }}
         </div>
-        <div id="interview" class="container tab-pane fade">
+        <div id="interview" class="tab-pane">
             {{ macro.display(interviewpitch) }}
         </div>
-        <div id="pickupline" class="container tab-pane fade">
+        <div id="pickupline" class="tab-pane">
             {{ macro.display(pickuplines) }}
         </div>
-        <div id="promotion" class="container tab-pane fade">
+        <div id="promotion" class="tab-pane">
             {{ macro.display(promotionpitch) }}
         </div>
     </div>
