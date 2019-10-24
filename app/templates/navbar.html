@@ -1,4 +1,4 @@
-<div class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,14 +8,12 @@
                 <span class="icon-bar"></span>
             </button>
             <ul>
-                <a href="/pitches/new/" class="navbar-brand">Post a pitch</a>
+                <a href="/pitches/new/" class="navbar-brand">Click Here To Post A Pitch</a>
             </ul>
-        </div>
-        <div class="navbar-nav">
-            <a href="/" class="navbar-brand">Home</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/" class="navbar-brand">Home</a></li>
                 {% if current_user.is_authenticated %}
                 <li>{{current_user.username}}</li>
                 <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
