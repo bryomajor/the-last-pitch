@@ -6,26 +6,26 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="thumbnail text-center">
-        <h4>{{ pitch.title }}</h4>
-        <h5>{{ pitch.description }}</h5>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="thumbnail text-center">
+                <h4>{{ pitch.title }}</h4>
+                <h5>{{ pitch.description }}</h5>
+            </div>
+        </div>
     </div>
-
-    <div class="container">
-        <div class="row">
+    <div class="row">
+        <div class="col-md-12">
             <div class="jumbotron">
                 {{ wtf.quick_form(form) }}
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Comments</h4>
-                {{ macro.displayComment(comment) }}
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Comments</h4>
+            {{ macro.displayComment(comment) }}
         </div>
     </div>
 </div>
