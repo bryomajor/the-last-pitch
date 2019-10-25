@@ -28,3 +28,17 @@
     {% endif %}
 </div>
 {% endmacro %}
+
+
+{% macro displayComment(comment) %}
+<div class="row mt">
+    {% if comment %}
+        {% for new_comment in comment %}
+        <div class="col-md-6">
+            <p>{{ new_comment.description }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+</div>
+{% endmacro %}
