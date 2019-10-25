@@ -2,7 +2,7 @@
 
 
 ## Description
-The Last Pitch application allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback. The pitches are organized by category.
+The Last Pitch application allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback. The pitches are organized by category. You can visit the live site on `https://last-pitch.herokuapp.com/`
 
 
 ## Author
@@ -21,7 +21,8 @@ As a user of the web application you will be able to:
 4. Add a pitch based on category
 5. Upvote or downvote a pitch
 6. Comment on a pitch
-7. Edit your profile i.e will be able to add a short bio about yourself and a profile picture
+7. See comments posted on each individual pitch
+8. Edit your profile i.e will be able to add a short bio about yourself and a profile picture
 
 ## Specifications
 | Behavior            | Input                         | Output                        | 
@@ -50,6 +51,14 @@ As a user of the web application you will be able to:
 * Activate virtual environment using `$ source virtual/bin/activate`
 * Download pip in our environment using `$ curl https://bootstrap.pypa.io/get-pip.py | python`
 * Install all the dependencies from the requirements.txt file by running `python3.6 pip install -r requirements.txt`
+* Create a `start.sh` file in the root of the folder and add the following code:
+
+        export MAIL_USERNAME=<your-email-address>
+        export MAIL_PASSWORD=<your-email-password>
+        export SECRET_KEY=<your-secret-key>
+
+python3.6 manage.py server
+* Edit the configuration instance in `manage.py` by commenting on `production` instance and uncommenting `development` instance
 * To run the application, in your terminal:
 
         $ chmod a+x start.sh
