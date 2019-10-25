@@ -11,7 +11,7 @@ def index():
     '''
     View root page function that returns the index page and it's data
     '''
-    title = 'Home'
+    title = 'Last Pitch'
     descr = 'The Last Pitch application allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback. The pitches are organized by category.'
     pitch = Pitch.query.filter_by().first()
     pickuplines = Pitch.query.filter_by(category='pickuplines')
