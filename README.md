@@ -57,7 +57,6 @@ As a user of the web application you will be able to:
         export MAIL_PASSWORD=<your-email-password>
         export SECRET_KEY=<your-secret-key>
 
-python3.6 manage.py server
 * Edit the configuration instance in `manage.py` by commenting on `production` instance and uncommenting `development` instance
 * To run the application, in your terminal:
 
