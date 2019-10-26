@@ -34,8 +34,9 @@
     {% if comment %}
         {% for new_comment in comment %}
         <div class="col-md-12">
-            <a href="{{url_for('profile', user_id=user.id)}}"></a>
-            <h4>{{ new_comment.user.username }}</h4>
+            <a href="{{url_for('profile', user_id = new_comment.id)}}">
+                <h4>{{ new_comment.user.username }}</h4>
+            </a>
             <p>{{ new_comment.description }}</p>
         </div>
         {% endfor %}
